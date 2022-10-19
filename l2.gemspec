@@ -10,11 +10,9 @@ Gem::Specification.new do |spec|
 
     spec.summary = "Message utilities for the Ruby console."
     spec.homepage = "https://www.lesli.dev"
-    spec.license = "GPLv3"
+    spec.license = "GPL-3.0"
     
     spec.required_ruby_version = ">= 2.7.0"
-
-    spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = "https://github.com/LesliTech/l2"
