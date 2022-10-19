@@ -3,7 +3,7 @@
 require_relative "lib/l2/version"
 
 Gem::Specification.new do |spec|
-    spec.name = "l2"
+    spec.name = "L2"
     spec.version = L2::VERSION
     spec.authors = ["The Lesli Development Team"]
     spec.email = ["hello@lesli.tech"]
