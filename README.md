@@ -19,39 +19,95 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
+
+**Simple message:**
+
+```ruby
 L2.m("hola")
 L2.m("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Simple message with dividing line:**
+
+```ruby
 L2.msg("hola")
 L2.msg("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Informative message:**
+
+```ruby
 L2.info("hola")
 L2.info("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Sucessful message:**
+
+```ruby
 L2.success("hola")
 L2.success("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Simple message:**
+
+```ruby
 L2.warning("hola")
 L2.warning("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Error message:**
+
+```ruby
 L2.danger("hola")
 L2.danger("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Error with flashing message:**
+
+```ruby
 L2.fatal("hola")
 L2.fatal("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Flashing message:**
+
+```ruby
 L2.alert("hola")
 L2.alert("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Useful to give instructions in deprecated methods or code:**
+
+```ruby
 L2.deprecation("hola")
+```
 
+
+**Print a simple list:**
+
+```ruby
 L2.list("hola", "hello", "hallo", 1, [2], {"a":"b"})
+```
 
+
+**Show data as table:**
+
+```ruby
 L2.table([
     { español: "hola", english: "hello", deutsch: "hallo" },
     { español: "hola", english: "hello", deutsch: "hallo" },
     { español: "hola", english: "hello", deutsch: "hallo" }
 ])
+```
+
 
 ### Development
 ------

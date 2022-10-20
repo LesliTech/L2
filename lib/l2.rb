@@ -34,7 +34,7 @@ require_relative "l2/version"
 module L2
 
     # standard color palette for texts
-    COLOURS = { 
+    COLORS = { 
         default: '38', 
         yellow: '1;33',
         white: '1;37', 
@@ -45,7 +45,7 @@ module L2
     }.freeze
 
     # standard color palette for backgrounds
-    BG_COLOURS = { 
+    BG_COLORS = { 
         default: '0', 
         yellow: '103', 
         white: '107', 
@@ -179,6 +179,18 @@ module L2
     end
 
 
+    # · Aliases
+
+
+    def self.warn *messages
+        warning(messages)
+    end
+
+
+    def self.error *messages
+        danger(messages)
+    end
+
     private
 
 
@@ -198,8 +210,8 @@ module L2
 
 
     def self.colorize(text, colour = :default, bg_colour = :default)
-        colour_code = COLOURS[colour]
-        bg_colour_code = BG_COLOURS[bg_colour]
+        colour_code = COLORS[colour]
+        bg_colour_code = BG_COLORS[bg_colour]
         return "\e[#{bg_colour_code};#{colour_code}m#{text}\e[0m".squeeze(';')
     end
     
