@@ -17,6 +17,10 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
     $ gem install l2
 
+Rails apps
+
+    $ gem "L2", "~> 0.2.0"
+
 ## Usage
 
 

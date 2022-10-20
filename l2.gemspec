@@ -34,14 +34,15 @@ Building a better future, one line of code at a time.
 require_relative "lib/l2/version"
 
 Gem::Specification.new do |spec|
-    spec.name = "L2"
-    spec.version = L2::VERSION
-    spec.authors = ["The Lesli Development Team"]
-    spec.email = ["hello@lesli.tech"]
+    spec.name       = "L2"
+    spec.version    = L2::VERSION
+    spec.authors    = ["The Lesli Development Team"]
+    spec.email      = ["hello@lesli.tech"]
 
-    spec.summary = "Message utilities for the Ruby console."
-    spec.homepage = "https://www.lesli.dev"
-    spec.license = "GPL-3.0"
+    spec.summary    = "Message utilities for the Ruby console."
+    spec.homepage   = "https://www.lesli.dev"
+    spec.homepage   = "https://github.com/LesliTech/L2"
+    spec.license    = "GPL-3.0"
     
     spec.required_ruby_version = ">= 2.7.0"
 
@@ -61,9 +62,6 @@ Gem::Specification.new do |spec|
     spec.bindir = "exe"
     spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
     spec.require_paths = ["lib"]
-
-    # Uncomment to register a new dependency of your gem
-    # spec.add_dependency "example-gem", "~> 1.0"
 
     # For more information and examples about making a new gem, check out our
     # guide at: https://bundler.io/guides/creating_gem.html
