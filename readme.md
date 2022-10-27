@@ -5,7 +5,7 @@
 </p>
 <h3 align="center">Message utilities for the Ruby console</h3>
 
-Version 0.1.0
+Version 0.4.0
 
 ## Installation
 
@@ -19,7 +19,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 Rails apps
 
-    $ gem "L2", "~> 0.2.0"
+    $ gem "L2", "~> 0.4.0"
 
 ## Usage
 

@@ -29,8 +29,6 @@ Building a better future, one line of code at a time.
 // · 
 =end
 
-require_relative "l2/version"
-
 module L2
 
     # standard color palette for texts
@@ -191,8 +189,15 @@ module L2
         danger(messages)
     end
 
-    private
+    def self.br count=1
+        separator_blank(count)
+    end 
 
+    def self.line count=8
+        separator_line(count)
+    end
+
+    private
 
     def self.separator_blank count=1
         puts("\n" * count);
