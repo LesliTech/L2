@@ -29,6 +29,8 @@ Building a better future, one line of code at a time.
 // · 
 =end
 
+require "ruby_cowsay"
+
 module L2
 
     # standard color palette for texts
@@ -174,6 +176,20 @@ module L2
 
         end
 
+    end
+
+    def self.cow message
+
+        # ids of the prettiest cows in the library
+        pretty_cows = [46,33,32,31,29,27,21,10,5]
+
+        # get a random cow id
+        random_cows = rand(0..(pretty_cows.size - 1))
+
+        br()
+
+        # show simple text message
+        puts Cow.new({ :cow => Cow.cows[pretty_cows[random_cows]] }).say(message)
     end
 
 

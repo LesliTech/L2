@@ -5,7 +5,7 @@
 </p>
 <h3 align="center">Message utilities for the Ruby console</h3>
 
-Version 0.4.0
+Version 0.5.0
 
 ## Installation
 
@@ -110,6 +110,13 @@ L2.table([
     { español: "hola", english: "hello", deutsch: "hallo" },
     { español: "hola", english: "hello", deutsch: "hallo" }
 ])
+```
+
+
+**Display a cow message:**
+
+```ruby
+L2.cow("Hello little cow!")
 ```
 
 

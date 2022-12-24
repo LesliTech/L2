@@ -44,7 +44,7 @@ Gem::Specification.new do |spec|
     spec.homepage   = "https://github.com/LesliTech/L2"
     spec.license    = "GPL-3.0"
 
-    spec.files       = ["lib/L2.rb"]
+    spec.files      = ["lib/L2.rb"]
     
     spec.required_ruby_version = ">= 2.7.0"
 
@@ -52,5 +52,8 @@ Gem::Specification.new do |spec|
     spec.metadata["source_code_uri"] = "https://github.com/LesliTech/L2"
     spec.metadata["bug_tracker_uri"] = "https://github.com/LesliTech/L2/issues"
     spec.metadata["changelog_uri"] = "https://github.com/LesliTech/L2/releases/tag/v#{spec.version}"
+
+    # Cowsay, written in ruby, as a gem.
+    spec.add_dependency "ruby_cowsay", "~> 0.1.3"
 
 end

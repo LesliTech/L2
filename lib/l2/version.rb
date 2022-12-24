@@ -30,5 +30,5 @@ Building a better future, one line of code at a time.
 =end
 
 module L2
-    VERSION = "0.4.0"
+    VERSION = "0.5.0"
 end
