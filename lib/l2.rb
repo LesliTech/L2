@@ -58,7 +58,7 @@ module L2
 
     # calculate the console width
     # tputcols is not available on windows
-    WIDTH = `tput cols`.to_i rescue 1;
+    WIDTH = `tput cols`.to_i rescue 5;
 
 
     def self.m *messages
