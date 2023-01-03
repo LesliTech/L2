@@ -5,7 +5,7 @@
 </p>
 <h3 align="center">Message utilities for the Ruby console</h3>
 
-Version 0.5.1
+Version 0.5.2
 
 ## Installation
 

@@ -58,7 +58,7 @@ module L2
 
     # calculate the console width
     # tputcols is not available on windows
-    WIDTH = `tput cols`.to_i rescue 5;
+    WIDTH = `tput cols`.to_i rescue 1;
 
 
     def self.m *messages
@@ -238,7 +238,10 @@ module L2
     
 
     def self.pretty(message, colour = :default, bg_colour = :default)
+
         width = WIDTH - message.length - 4
+        width = 1 if width.negative?
+
         return colorize("\ \ #{ message } #{"\ " * width}", colour, bg_colour)
     end
 
