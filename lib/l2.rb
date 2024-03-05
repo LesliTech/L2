@@ -29,8 +29,11 @@ Building a better future, one line of code at a time.
 // · 
 =end
 
+
+# ·
 require "ruby_cowsay"
 
+# ·
 module L2
 
     # standard color palette for texts
@@ -58,17 +61,17 @@ module L2
 
     # calculate the console width
     # tputcols is not available on windows
-    WIDTH = `tput cols`.to_i rescue 1;
+    WIDTH = `tput cols`.to_i rescue WIDTH = 1;
 
 
     def self.m *messages
-        puts(messages.join("\n"))
+        messages.each { |m| puts(m) }
     end
-
-
+    
+    
     def self.msg *messages
-        separator_blank(2)
-        puts(messages.join("\n"))
+        separator_blank
+        self.m(messages)
         separator_line
         separator_blank
     end
@@ -178,7 +181,7 @@ module L2
 
     end
 
-    def self.cow message
+    def self.cow message="Process completed!"
 
         # ids of the prettiest cows in the library
         pretty_cows = [46,33,32,31,29,27,21,10,5]
@@ -192,6 +195,26 @@ module L2
         puts Cow.new({ :cow => Cow.cows[pretty_cows[random_cows]] }).say(message)
     end
 
+    def self.spin_it(times)
+        pinwheel =  ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
+        # times.times do
+        #   print "\b" + pinwheel.rotate!.first
+        #   sleep(0.1)
+        # end
+
+        check = "\u2713"
+        heart = "\u2665"
+        package = "\u{1F4E6}"
+        fire_and_one_hundred = "\u{1F525 1F4AF}"
+        puts heart
+        puts package
+        puts fire_and_one_hundred
+        puts self.colorize(check, :green)
+        pp check 
+    end
+      
+      
+      
 
     # · Aliases
 

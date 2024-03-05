@@ -1,56 +1,81 @@
 # frozen_string_literal: true
 
 L2.m("holi")
-puts ("\n")
 L2.m("hola", "hola tu", "holanda")
-puts ("\n")
+L2.m(["hola", "hola tu", "holanda"])
+L2.m({"uno":"hola", "dos":"hola tu", "tres":"holanda"})
+
+L2.br(2)
 
 L2.msg("holi")
-puts ("\n")
 L2.msg("hola", "hola tu", "holanda")
-puts ("\n")
+L2.msg(["hola", "hola tu", "holanda"])
+L2.msg({"uno":"hola", "dos":"hola tu", "tres":"holanda"})
+
+L2.br(2)
+
+L2.info("holi")
+L2.info("hola", "hola tu", "holanda")
+L2.info(["hola", "hola tu", "holanda"])
+L2.info({"uno":"hola", "dos":"hola tu", "tres":"holanda"})
+
+L2.br(2)
+
+L2.spin_it 100
+
+=begin
 
 L2.info("holi")
 puts ("\n")
 L2.info("hola", "hola tu", "holanda")
 puts ("\n")
+L2.info({
+    name: 'John Doe',
+    age: 30,
+    hobbies: ['reading', 'coding', 'gaming'],
+    favorite_color: 'blue'
+})
 
-L2.success("holi")
-puts ("\n")
-L2.success("hola", "hola tu", "holanda")
-puts ("\n")
+L2.job "Migrations", "Migrations completed" do 
+    sleep(3.0)
+end
 
-L2.warning("holi")
-puts ("\n")
-L2.warning("hola", "hola tu", "holanda")
-puts ("\n")
+# L2.success("holi")
+# puts ("\n")
+# L2.success("hola", "hola tu", "holanda")
+# puts ("\n")
 
-L2.danger("holi")
-puts ("\n")
-L2.danger("hola", "hola tu", "holanda", 1, 2, 1.8, [1,2,3], {"a":"b"})
-puts ("\n")
+# L2.warning("holi")
+# puts ("\n")
+# L2.warning("hola", "hola tu", "holanda")
+# puts ("\n")
 
-L2.fatal("holi")
-puts ("\n")
-L2.fatal("hola", "hola tu", "holanda")
-puts ("\n")
+# L2.danger("holi")
+# puts ("\n")
+# L2.danger("hola", "hola tu", "holanda", 1, 2, 1.8, [1,2,3], {"a":"b"})
+# puts ("\n")
 
-L2.alert("holi")
-puts ("\n")
-L2.alert("hola", "hola tu", "holanda")
-puts ("\n")
+# L2.fatal("holi")
+# puts ("\n")
+# L2.fatal("hola", "hola tu", "holanda")
+# puts ("\n")
 
-L2.deprecation("holi")
-puts ("\n")
+# L2.alert("holi")
+# puts ("\n")
+# L2.alert("hola", "hola tu", "holanda")
+# puts ("\n")
 
-L2.list("hola", "hola tu", "holanda")
-puts ("\n")
+# L2.deprecation("holi")
+# puts ("\n")
 
-L2.table([
-    { name: "Luis Donis", title: "software developer" },
-    { name: "Luis Donis", title: "software developer" }
-])
-puts ("\n")
+# L2.list("hola", "hola tu", "holanda")
+# puts ("\n")
+
+# L2.table([
+#     { name: "Luis Donis", title: "software developer" },
+#     { name: "Luis Donis", title: "software developer" }
+# ])
+# puts ("\n")
 
 =begin
 RSpec.describe L2 do

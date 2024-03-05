@@ -56,4 +56,6 @@ Gem::Specification.new do |spec|
     # Cowsay, written in ruby, as a gem.
     spec.add_dependency "ruby_cowsay", "~> 0.1.3"
 
+    # Terminal UI framework
+    spec.add_dependency "cli-ui", "~> 2.2.3"
 end

@@ -32,7 +32,8 @@ Building a better future, one line of code at a time.
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in l2.gemspec
+# · Specify your gem's dependencies in l2.gemspec
 gemspec
 
+# · 
 gem "rspec", "~> 3.0"
