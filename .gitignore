@@ -10,3 +10,5 @@
 # rspec failure tracking
 .rspec_status
 .DS_Store
+# Ignore Lesli gems
+L2*.gem

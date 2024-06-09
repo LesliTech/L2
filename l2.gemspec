@@ -52,10 +52,4 @@ Gem::Specification.new do |spec|
     spec.metadata["source_code_uri"] = "https://github.com/LesliTech/L2"
     spec.metadata["bug_tracker_uri"] = "https://github.com/LesliTech/L2/issues"
     spec.metadata["changelog_uri"] = "https://github.com/LesliTech/L2/releases/tag/v#{spec.version}"
-
-    # Cowsay, written in ruby, as a gem.
-    spec.add_dependency "ruby_cowsay", "~> 0.1.3"
-
-    # Terminal UI framework
-    spec.add_dependency "cli-ui", "~> 2.2.3"
 end

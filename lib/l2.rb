@@ -30,242 +30,84 @@ Building a better future, one line of code at a time.
 =end
 
 
-# ·
-require "ruby_cowsay"
+require "l2/msg"
+require "l2/list"
+require "l2/table"
+require "l2/space"
+
 
 # ·
 module L2
 
-    # standard color palette for texts
-    COLORS = { 
-        default: '38', 
-        yellow: '1;33',
-        white: '1;37', 
-        green: '32',  
-        black: '30', 
-        blue: '34', 
-        red: '31'
-    }.freeze
-
-    # standard color palette for backgrounds
-    BG_COLORS = { 
-        default: '0', 
-        yellow: '103', 
-        white: '107', 
-        green: '42', 
-        black: '40', 
-        blue: '44',
-        red: '41'
-    }.freeze
-
-
-    # calculate the console width
-    # tputcols is not available on windows
-    WIDTH = `tput cols`.to_i rescue WIDTH = 1;
-
-
     def self.m *messages
-        messages.each { |m| puts(m) }
-    end
-    
-    
-    def self.msg *messages
-        separator_blank
-        self.m(messages)
-        separator_line
-        separator_blank
+        L2::Msg.simple(messages)
     end
 
+    def self.msg *messages
+        self.br
+        L2::Msg.simple(messages)
+        self.line
+    end
 
     def self.info *messages
-        puts(separator_pretty(:blue))
-        messages.each { |message| puts(pretty("INFO: #{ message }", :white, :blue)) }
-        puts(separator_pretty(:blue))
+        L2::Msg.info(messages)
     end
-
 
     def self.success *messages
-        puts(separator_pretty(:green))
-        messages.each { |message| puts(pretty("SUCCESS: #{ message }", :black, :green)) }
-        puts(separator_pretty(:green))
+        L2::Msg.success(messages)
     end
-
 
     def self.warning *messages
-        puts(separator_pretty(:yellow))
-        messages.each { |message| puts(pretty("WARNING: #{ message }", :black, :yellow)) }
-        puts(separator_pretty(:yellow))
+        L2::Msg.warning(messages)
     end
-
 
     def self.danger *messages
-        puts(separator_pretty(:red))
-        messages.each { |message| puts(pretty("ERROR: #{ message }", :yellow, :red)) }
-        puts(pretty("PATH: #{ caller[0] }", :yellow, :red))
-        puts(separator_pretty(:red))
+        L2::Msg.danger(messages)
     end
-
-
-    def self.fatal *messages
-        puts(separator_pretty(:red))
-        messages.each { |message| puts("\e[5m#{pretty(message, :white, :red)}\e[0m") }
-        puts(pretty("PATH: #{ caller[0] }", :white, :red))
-        puts(separator_pretty(:red))
-    end
-
 
     def self.alert *messages
-        messages.each { |message| puts("\e[5m#{message}\e[0m") }
+        L2::Msg.alert(messages)
     end
-
-
-    def self.deprecation message
-        puts(separator_pretty(:red))
-        puts(pretty("DEPRECATED METHOD: #{ caller[0] }, #{ message }", :white, :red))
-        puts(separator_pretty(:red))
-    end
-
-
-    def self.list *messages
-        messages.each { |message| puts(" - #{ message }" )}
-        separator_blank
-    end
-
-
-    def self.table data
-        
-        return if Gem.win_platform?
-        return unless data.size > 0
-
-        if data.class.name == "ActiveRecord::Relation"
-            data = data.to_a.map(&:serializable_hash) 
-        end
-
-        # get the available characters in terminal width
-        terminal_width = `tput cols`.to_i
-
-        # get the number of columns to print base on the data hash
-        cols = data.first.keys.count + 1
-
-        # get the available space for every column
-        col_width = (terminal_width / cols) - 1
-
-        # validate that we have minimum space to render the table
-        return if col_width <= 0
-
-        # separator for every column and row
-        separator = ('| ' << ('- ' * (col_width / 2)))
-
-        # add extra blank spaces to adjust the col_width only if col_width not a even number
-        separator += (' ') if (col_width - separator.size).odd?
-    
-        # print data as table :)
-        data.each_with_index do |row, index|
-
-            # only for table header
-            if index == 0 
-
-                # print table titles
-                puts '| ' << row.keys.map { |key| key.to_s.upcase.ljust(col_width) }.join('| ')
-
-                # print header separators, only for visible columns
-                puts separator * (cols - 1)
-
-            end 
-
-            # join hash values as a line and justify every value to print value
-            # in its own column
-            puts '| ' << row.values.map { |value| value.to_s.ljust(col_width) }.join('| ')
-
-        end
-
-    end
-
-    def self.cow message="Process completed!"
-
-        # ids of the prettiest cows in the library
-        pretty_cows = [46,33,32,31,29,27,21,10,5]
-
-        # get a random cow id
-        random_cows = rand(0..(pretty_cows.size - 1))
-
-        br()
-
-        # show simple text message
-        puts Cow.new({ :cow => Cow.cows[pretty_cows[random_cows]] }).say(message)
-    end
-
-    def self.spin_it(times)
-        pinwheel =  ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
-        # times.times do
-        #   print "\b" + pinwheel.rotate!.first
-        #   sleep(0.1)
-        # end
-
-        check = "\u2713"
-        heart = "\u2665"
-        package = "\u{1F4E6}"
-        fire_and_one_hundred = "\u{1F525 1F4AF}"
-        puts heart
-        puts package
-        puts fire_and_one_hundred
-        puts self.colorize(check, :green)
-        pp check 
-    end
-      
-      
-      
-
-    # · Aliases
-
 
     def self.warn *messages
         warning(messages)
     end
 
-
     def self.error *messages
-        danger(messages)
+        L2::Msg.danger(messages)
+    end
+
+
+    def self.list *items
+        L2::List.bullet(items)
+    end
+
+    def self.list_check *items
+        L2::List.check(items)
+    end
+
+    def self.list_star *items
+        L2::List.star(items)
+    end
+
+
+    def self.table data
+        L2::Table.simple(data)
     end
 
     def self.br count=1
-        separator_blank(count)
+        L2::Space.br(count)
     end 
 
     def self.line count=8
-        separator_line(count)
+        L2::Space.line(count)
     end
 
-    private
-
-    def self.separator_blank count=1
-        puts("\n" * count);
-    end 
-
-
-    def self.separator_line count=8
-        puts('-·-     ' * count)
-    end 
-
-
-    def self.separator_pretty(bg_colour = :default)
-        pretty("", :black, bg_colour)
+    def self.color color
+        L2::Space.color(count)
     end
 
 
-    def self.colorize(text, colour = :default, bg_colour = :default)
-        colour_code = COLORS[colour]
-        bg_colour_code = BG_COLORS[bg_colour]
-        return "\e[#{bg_colour_code};#{colour_code}m#{text}\e[0m".squeeze(';')
+    def self.deprecation message
     end
-    
-
-    def self.pretty(message, colour = :default, bg_colour = :default)
-
-        width = WIDTH - message.length - 4
-        width = 1 if width.negative?
-
-        return colorize("\ \ #{ message } #{"\ " * width}", colour, bg_colour)
-    end
-
 end
