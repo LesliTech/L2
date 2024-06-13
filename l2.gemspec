@@ -44,7 +44,9 @@ Gem::Specification.new do |spec|
     spec.homepage   = "https://github.com/LesliTech/L2"
     spec.license    = "GPL-3.0"
 
-    spec.files      = ["lib/L2.rb"]
+    spec.files = Dir.chdir(File.expand_path(__dir__)) do
+        Dir["{lib}/**/*", "license", "readme.md"]
+    end
     
     spec.required_ruby_version = ">= 2.7.0"
 

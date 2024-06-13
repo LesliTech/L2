@@ -30,10 +30,10 @@ Building a better future, one line of code at a time.
 =end
 
 
-require "l2/msg"
-require "l2/list"
-require "l2/table"
-require "l2/space"
+require "L2/msg"
+require "L2/list"
+require "L2/table"
+require "L2/space"
 
 
 # ·
