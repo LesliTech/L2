@@ -1,6 +1,4 @@
 
-require "l2/Config"
-
 module L2 
     module Space 
 

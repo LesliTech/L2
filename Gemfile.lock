@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    L2 (0.5.3)
+    L2 (0.6.4)
 
 GEM
   remote: https://rubygems.org/

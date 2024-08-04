@@ -29,11 +29,11 @@ Building a better future, one line of code at a time.
 // · 
 =end
 
-
-require "L2/msg"
-require "L2/list"
+require "L2/config"
 require "L2/table"
 require "L2/space"
+require "L2/list"
+require "L2/msg"
 
 
 # ·
